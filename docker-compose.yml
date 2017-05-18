@@ -5,10 +5,15 @@ services:
     image: 'bitnami/mariadb:latest'
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
-
+      - MARIADB_USER=check
+      - MARIADB_PASSWORD=checking
+      - MARIADB_DATABASE=echeck
+      
   app:
     tty: true # Enables debugging capabilities when attached to this container.
-    image: 'bitnami/rails:latest'
+    build:
+      context: ../e-check_api
+      dockerfile: Dockerfile    
     # labels:
     #   kompose.service.type: nodeport
     # environment:
@@ -16,6 +21,6 @@ services:
     depends_on:
       - mariadb
     ports:
-      - 3000:3000
+      - 80:3000
     volumes:
-      - .:/app
+      - ../e-check_api:/app
