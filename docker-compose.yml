@@ -16,15 +16,29 @@ services:
     build:
       context: ../e-check_api
       dockerfile: Dockerfile    
-    # labels:
-    #   kompose.service.type: nodeport
-    # environment:
-    #   - DATABASE_URL=mysql2://mariadb/my_app_development
     links:
       - mariadb:db.ec.chatops.in
     depends_on:
       - mariadb
     ports:
-      - 80:3000
+      - 3000:3000
     volumes:
       - ../e-check_api:/app
+
+  dashboard:
+    build:
+      context: ../e-check-dashboard
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    volumes:
+      - ../e-check-dashboard:/app
+
+  frontend:
+    build:
+      context: ../e-check-frontend
+      dockerfile: Dockerfile
+    ports:
+      - 8081:80
+    volumes:
+      - ../e-check-frontend:/app

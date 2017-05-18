@@ -4,4 +4,4 @@
 cd $(dirname $0)/..
 source ./auto/functions
 
-docker-compose --project-name ${PROJECTNAME} up -d app
+docker-compose --project-name ${PROJECTNAME} up -d
