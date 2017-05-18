@@ -8,7 +8,9 @@ services:
       - MARIADB_USER=check
       - MARIADB_PASSWORD=checking
       - MARIADB_DATABASE=echeck
-      
+    volumes:
+      - ../db:/bitnami/mariadb 
+
   app:
     tty: true # Enables debugging capabilities when attached to this container.
     build:
@@ -18,6 +20,8 @@ services:
     #   kompose.service.type: nodeport
     # environment:
     #   - DATABASE_URL=mysql2://mariadb/my_app_development
+    links:
+      - mariadb:db.ec.chatops.in
     depends_on:
       - mariadb
     ports:
