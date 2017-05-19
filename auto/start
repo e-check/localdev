@@ -4,8 +4,4 @@
 cd $(dirname $0)/..
 source ./auto/functions
 
-RUNLIST="app db"
-
-for r in ${RUNLIST}; do
-  docker-compose --project-name ${PROJECTNAME} start ${r}
-done
+docker-compose --project-name ${PROJECTNAME} start

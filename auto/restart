@@ -4,5 +4,4 @@
 cd $(dirname $0)/..
 source ./auto/functions
 
-./auto/stop
-./auto/start
+docker-compose --project-name ${PROJECTNAME} restart
