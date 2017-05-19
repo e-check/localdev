@@ -1,8 +1,6 @@
-# DevOps Practice 
+# Easy Check-in Sysytem
 
-![Build Status](https://travis-ci.org/phoenix-zhu/devops-practice.svg?branch=master)
-
-This repo shows how we do DevOps practices with Docker.
+A check-in system for attendants check in via QR code with mobile phones, not manually fill up in a paper.
 
 ## Prerequisite
 * [docker](https://docs.docker.com/engine/installation/mac/#/docker-toolbox)
@@ -18,4 +16,4 @@ This repo shows how we do DevOps practices with Docker.
   ```
   ./auto/up
   ```
-  After the initialization process is successful done, you can access your local environment via [c.local.ec.chatops.in](http://c.local.ec.chatops.in) in your browser.
+  After the initialization process is successful done, you can access your local environment.
