@@ -18,6 +18,8 @@ services:
       dockerfile: Dockerfile    
     links:
       - mariadb:db.ec.chatops.in
+    environment:
+      - RAILS_ENV=production
     depends_on:
       - mariadb
     ports:
