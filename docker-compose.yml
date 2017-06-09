@@ -44,3 +44,21 @@ services:
       - 8081:80
     volumes:
       - ../e-check-frontend:/app
+
+  lbs:
+    build:
+      context: ../lbs
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    links:
+      - app:api
+      - dashboard
+      - frontend
+    volumes:
+      - ../lbs/conf:/etc/nginx/conf.d
+      - ../lbs/html:/usr/share/nginx/html
+    depends_on:
+      - frontend
+      - dashboard
+      - app
